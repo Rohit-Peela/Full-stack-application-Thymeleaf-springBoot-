@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create Instituition Details</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${institutionDetails}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionName: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>ssnUpdateModel: &emsp;</td>
+                        <td><input type="text" th:field="*{ssnUpdateModel}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>returnUrl: &emsp;</td>
+                        <td><input type="text" th:field="*{returnUrl}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>thresholdRelevanceScore: &emsp;</td>
+                        <td><input type="text" th:field="*{thresholdRelevanceScore}"></td>
+                    </tr>
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="institutionDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+        <hr>
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create BureauConfig Details</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${bureauConfigDetails}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>bureauName: &emsp;</td>
+                        <td><input type="text" th:field="*{bureauName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>bureauScoreCode: &emsp;</td>
+                        <td><input type="text" th:field="*{bureauScoreCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>bureauAdditionalScoreCode: &emsp;</td>
+                        <td><input type="text" th:field="*{bureauAdditionalScoreCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>inquiryType: &emsp;</td>
+                        <td><input type="text" th:field="*{inquiryType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>endPoint: &emsp;</td>
+                        <td><input type="text" th:field="*{endPoint}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>userName: &emsp;</td>
+                        <td><input type="text" th:field="*{userName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>password: &emsp;</td>
+                        <td><input type="text" th:field="*{password}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>cbcCustomerId: &emsp;</td>
+                        <td><input type="text" th:field="*{cbcCustomerId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>tuSubscriberPrefixCode: &emsp;</td>
+                        <td><input type="text" th:field="*{tuSubscriberPrefixCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>tuKeyStoreLocation: &emsp;</td>
+                        <td><input type="text" th:field="*{tuKeyStoreLocation}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>tuCertPassword: &emsp;</td>
+                        <td><input type="text" th:field="*{tuCertPassword}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>tuIndustryCode: &emsp;</td>
+                        <td><input type="text" th:field="*{tuIndustryCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>tuProductCode: &emsp;</td>
+                        <td><input type="text" th:field="*{tuProductCode}"></td>
+                    </tr>
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="bureauConfigDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create InternalAutoInventory</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${internalAutoInventory}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>year: &emsp;</td>
+                        <td><input type="text" th:field="*{year}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>make: &emsp;</td>
+                        <td><input type="text" th:field="*{make}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>model: &emsp;</td>
+                        <td><input type="text" th:field="*{model}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>series: &emsp;</td>
+                        <td><input type="text" th:field="*{series}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>endDate: &emsp;</td>
+                        <td><input type="text" th:field="*{endDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>imageUrl: &emsp;</td>
+                        <td><input type="text" th:field="*{imageUrl}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>displayOrder: &emsp;</td>
+                        <td><input type="text" th:field="*{displayOrder}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>displayPrice: &emsp;</td>
+                        <td><input type="text" th:field="*{displayPrice}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>msrp: &emsp;</td>
+                        <td><input type="text" th:field="*{msrp}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>invoicePrice: &emsp;</td>
+                        <td><input type="text" th:field="*{invoicePrice}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="internalAutoInventory"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create BackendProductLookUp</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${backendProductLookUp}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>productName: &emsp;</td>
+                        <td><input type="text" th:field="*{productName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>lenderName: &emsp;</td>
+                        <td><input type="text" th:field="*{lenderName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>endDate: &emsp;</td>
+                        <td><input type="text" th:field="*{endDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="backendProductLookUp"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create InstitutionCrossProductDetails</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}"
+                  th:object="${institutionCrossProductDetails}" method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>minFICO: &emsp;</td>
+                        <td><input type="text" th:field="*{minFICO}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>maxFICO: &emsp;</td>
+                        <td><input type="text" th:field="*{maxFICO}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>endDate: &emsp;</td>
+                        <td><input type="text" th:field="*{endDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>eligibleChannels: &emsp;</td>
+                        <td><input type="text" th:field="*{eligibleChannels}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>eligibleApplicationTypes: &emsp;</td>
+                        <td><input type="text" th:field="*{eligibleApplicationTypes}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>isPreApprovalConsidered: &emsp;</td>
+                        <td><input type="text" th:field="*{isPreApprovalConsidered}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>eligibleStates: &emsp;</td>
+                        <td><input type="text" th:field="*{eligibleStates}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>crossSellLoanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{crossSellLoanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>crossSellProductType: &emsp;</td>
+                        <td><input type="text" th:field="*{crossSellProductType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>isCrossSellLoanPurposeRefinance: &emsp;</td>
+                        <td><input type="text" th:field="*{isCrossSellLoanPurposeRefinance}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>crossSellDefaultLoanAmount: &emsp;</td>
+                        <td><input type="text" th:field="*{crossSellDefaultLoanAmount}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="institutionCrossProductDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create IPWhiteListing</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${ipWhiteListing}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>idAddress: &emsp;</td>
+                        <td><input type="text" th:field="*{idAddress}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>apiName: &emsp;</td>
+                        <td><input type="text" th:field="*{apiName}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="ipWhiteListing"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create TaxLookUp</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${taxLookUp}" method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>zip: &emsp;</td>
+                        <td><input type="text" th:field="*{zip}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>city: &emsp;</td>
+                        <td><input type="text" th:field="*{city}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>county: &emsp;</td>
+                        <td><input type="text" th:field="*{county}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>state: &emsp;</td>
+                        <td><input type="text" th:field="*{state}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>country: &emsp;</td>
+                        <td><input type="text" th:field="*{country}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>taxType: &emsp;</td>
+                        <td><input type="text" th:field="*{taxType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>basis: &emsp;</td>
+                        <td><input type="text" th:field="*{basis}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>fixedTax: &emsp;</td>
+                        <td><input type="text" th:field="*{fixedTax}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>variableTax: &emsp;</td>
+                        <td><input type="text" th:field="*{variableTax}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>endDate: &emsp;</td>
+                        <td><input type="text" th:field="*{endDate}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary" value="taxLookUp">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+        <hr>
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create EmailTemplateDetails</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${emailTemplateDetails}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionName: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>channel: &emsp;</td>
+                        <td><input type="text" th:field="*{channel}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>communicationType: &emsp;</td>
+                        <td><input type="text" th:field="*{communicationType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>templateName: &emsp;</td>
+                        <td><input type="text" th:field="*{templateName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>templateDesc: &emsp;</td>
+                        <td><input type="text" th:field="*{templateDesc}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>activeIndicator: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{activeIndicator}"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>day: &emsp;</td>
+                        <td><input type="text" th:field="*{day}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>fromEmail: &emsp;</td>
+                        <td><input type="text" th:field="*{fromEmail}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>sendGridApiKey: &emsp;</td>
+                        <td><input type="text" th:field="*{sendGridApiKey}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>subject: &emsp;</td>
+                        <td><input type="text" th:field="*{subject}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="emailTemplateDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create PartnerDetails</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${partnerDetails}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>partnerNumber: &emsp;</td>
+                        <td><input type="text" th:field="*{partnerNumber}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>partnerName: &emsp;</td>
+                        <td><input type="text" th:field="*{partnerName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>apiKey: &emsp;</td>
+                        <td><input type="text" th:field="*{apiKey}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>referrerId: &emsp;</td>
+                        <td><input type="text" th:field="*{referrerId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>channel: &emsp;</td>
+                        <td><input type="text" th:field="*{channel}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>defaultIndicator: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{defaultIndicator}"/></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="partnerDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create SchoolEligibilityLookup</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${schoolEligibilityLookup}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>lender: &emsp;</td>
+                        <td><input type="text" th:field="*{lender}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>schoolName: &emsp;</td>
+                        <td><input type="text" th:field="*{schoolName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>expirationDate: &emsp;</td>
+                        <td><input type="text" th:field="*{expirationDate}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="schoolEligibilityLookup"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create SMSTemplateDetails</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${smsTemplateDetails}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionName: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>channel: &emsp;</td>
+                        <td><input type="text" th:field="*{channel}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>communicationType: &emsp;</td>
+                        <td><input type="text" th:field="*{communicationType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>smsText: &emsp;</td>
+                        <td><input type="text" th:field="*{smsText}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>activeIndicator: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{activeIndicator}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>day: &emsp;</td>
+                        <td><input type="text" th:field="*{day}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>fromPhoneNUmber: &emsp;</td>
+                        <td><input type="text" th:field="*{fromPhoneNUmber}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>twilioAccountSid: &emsp;</td>
+                        <td><input type="text" th:field="*{twilioAccountSid}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>twilioAccountToken: &emsp;</td>
+                        <td><input type="text" th:field="*{twilioAccountToken}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="smsTemplateDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create SMSTemplateDetails</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${smsTemplateDetails}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionName: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>channel: &emsp;</td>
+                        <td><input type="text" th:field="*{channel}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>communicationType: &emsp;</td>
+                        <td><input type="text" th:field="*{communicationType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>smsText: &emsp;</td>
+                        <td><input type="text" th:field="*{smsText}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>activeIndicator: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{activeIndicator}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>day: &emsp;</td>
+                        <td><input type="text" th:field="*{day}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>fromPhoneNUmber: &emsp;</td>
+                        <td><input type="text" th:field="*{fromPhoneNUmber}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>twilioAccountSid: &emsp;</td>
+                        <td><input type="text" th:field="*{twilioAccountSid}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>twilioAccountToken: &emsp;</td>
+                        <td><input type="text" th:field="*{twilioAccountToken}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="smsTemplateDetails"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create Lender</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${lender}" method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>bankIcon: &emsp;</td>
+                        <td><input type="text" th:field="*{bankIcon}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>dba: &emsp;</td>
+                        <td><input type="text" th:field="*{dba}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>contact: &emsp;</td>
+                        <td><input type="text" th:field="*{contact}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>contactPerson: &emsp;</td>
+                        <td><input type="text" th:field="*{contactPerson}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>email: &emsp;</td>
+                        <td><input type="text" th:field="*{email}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>addressId: &emsp;</td>
+                        <td><input type="text" th:field="*{addressId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>type: &emsp;</td>
+                        <td><input type="text" th:field="*{type}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>name: &emsp;</td>
+                        <td><input type="text" th:field="*{name}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>achDiscountRate: &emsp;</td>
+                        <td><input type="text" th:field="*{achDiscountRate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>discountedPrice: &emsp;</td>
+                        <td><input type="text" th:field="*{discountedPrice}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>isLenderOfferAch: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{isLenderOfferAch}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>valueType: &emsp;</td>
+                        <td><input type="text" th:field="*{valueType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>termBasedLoan: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{termBasedLoan}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>minLoanAmount: &emsp;</td>
+                        <td><input type="text" th:field="*{minLoanAmount}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>maxLoanAmount: &emsp;</td>
+                        <td><input type="text" th:field="*{maxLoanAmount}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>relevanceScore: &emsp;</td>
+                        <td><input type="text" th:field="*{relevanceScore}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>variableBaseRate: &emsp;</td>
+                        <td><input type="text" th:field="*{variableBaseRate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>fixedBaseRate: &emsp;</td>
+                        <td><input type="text" th:field="*{fixedBaseRate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>expirationDate: &emsp;</td>
+                        <td><input type="text" th:field="*{expirationDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>finalSubmitChannel: &emsp;</td>
+                        <td><input type="text" th:field="*{finalSubmitChannel}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>finalSubmitEmailId: &emsp;</td>
+                        <td><input type="text" th:field="*{finalSubmitEmailId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>finalSubmitMessage: &emsp;</td>
+                        <td><input type="text" th:field="*{finalSubmitMessage}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>finalSubmitWebForwardLink: &emsp;</td>
+                        <td><input type="text" th:field="*{finalSubmitWebForwardLink}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>crossSellEnabled: &emsp;</td>
+                        <td><input type="text" th:field="*{crossSellEnabled}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary" value="lender"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create LenderDocuSignConfig</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${lenderDocuSignConfig}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>lenderName: &emsp;</td>
+                        <td><input type="text" th:field="*{lenderName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>serviceProvider: &emsp;</td>
+                        <td><input type="text" th:field="*{serviceProvider}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>applicationType: &emsp;</td>
+                        <td><input type="text" th:field="*{applicationType}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>integrationKey: &emsp;</td>
+                        <td><input type="text" th:field="*{integrationKey}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>userGuid: &emsp;</td>
+                        <td><input type="text" th:field="*{userGuid}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>brandId: &emsp;</td>
+                        <td><input type="text" th:field="*{brandId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>edocControlid: &emsp;</td>
+                        <td><input type="text" th:field="*{edocControlid}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>edocUser: &emsp;</td>
+                        <td><input type="text" th:field="*{edocUser}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>edocEKey: &emsp;</td>
+                        <td><input type="text" th:field="*{edocEKey}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>templateName: &emsp;</td>
+                        <td><input type="text" th:field="*{templateName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>expirationDate: &emsp;</td>
+                        <td><input type="text" th:field="*{expirationDate}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="lenderDocuSignConfig"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create LenderMaxDTILookup</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${lenderMaxDTILookup}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>lenderName: &emsp;</td>
+                        <td><input type="text" th:field="*{lenderName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>maxDti: &emsp;</td>
+                        <td><input type="text" th:field="*{maxDti}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>maxPti: &emsp;</td>
+                        <td><input type="text" th:field="*{maxPti}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>minIncome: &emsp;</td>
+                        <td><input type="text" th:field="*{minIncome}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>maxIncome: &emsp;</td>
+                        <td><input type="text" th:field="*{maxIncome}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>expirationDate: &emsp;</td>
+                        <td><input type="text" th:field="*{expirationDate}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="lenderMaxDTILookup"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create LenderMenu</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${lenderMenu}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>lenderId: &emsp;</td>
+                        <td><input type="text" th:field="*{lenderId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>title: &emsp;</td>
+                        <td><input type="text" th:field="*{title}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>link: &emsp;</td>
+                        <td><input type="text" th:field="*{link}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>parentMenuId: &emsp;</td>
+                        <td><input type="text" th:field="*{parentMenuId}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>internal: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{internal}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>icon: &emsp;</td>
+                        <td><input type="text" th:field="*{icon}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>href: &emsp;</td>
+                        <td><input type="checkbox" th:field="*{href}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="lenderMenu"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <hr>
+
+        <div class="card-body">
+            <h1 style="text-align:center;"><b>Create LenderSubProduct</b></h1>
+            <br/><br/><br/>
+            <form action="#" th:action="@{/products/save/InstituitionDetails}" th:object="${lenderSubProduct}"
+                  method="post">
+                <table border="0" cellpadding="10">
+
+                    <tr>
+                        <td>institutionCode: &emsp;</td>
+                        <td><input type="text" th:field="*{institutionCode}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>lenderName: &emsp;</td>
+                        <td><input type="text" th:field="*{lenderName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>loanPurpose: &emsp;</td>
+                        <td><input type="text" th:field="*{loanPurpose}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>subProductName: &emsp;</td>
+                        <td><input type="text" th:field="*{subProductName}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>effectiveDate: &emsp;</td>
+                        <td><input type="text" th:field="*{effectiveDate}"></td>
+                    </tr>
+
+                    <tr>
+                        <td>expirationDate: &emsp;</td>
+                        <td><input type="text" th:field="*{expirationDate}"></td>
+                    </tr>
+
+
+                    <tr style="text-align:center">
+                        <td colspan="2"><input type="submit" name="action" class="btn btn-primary"
+                                               value="lenderSubProduct"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        div.collapse {
+        overflow:auto;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+<body>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+<form th:action = "@{/products/findBy}" th:object="${search}" class="example"  style="margin:auto;max-width:300px">
+    <!-- onkeyup="myFunction()" -->
+    <input type="text" id="myInput" th:field = "*{searchBy}" method="get" placeholder="Enter institutionCode...">
+    <button type="submit"><i class="fa fa-search"></i></button>
+    <a href="/excel/tables" class="btn btn-primary"><i class="fa fa-table" aria-hidden="true"></i></a>
+    <br/><br/><br/>
+    <a href="/products/save1" class="btn btn-primary"><i
+            class="fas fa-user-plus ml-2"> Add New Institution</i></a>
+</form>
+            <br/><br/><br/>
+            <div class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">InstitutionDetails</button>
+                <br/><br/><br/>
+                <div id="demo1" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <!--<tr><th></th><a href="/products/save1" class="btn btn-primary"><i
+                                class="fas fa-user-plus ml-2"> Add </i></a></th></tr>-->
+                        <tr>
+                            <th>institutionDetailsId</th>
+                            <th>institutionName</th>
+                            <th>institutionCode</th>
+                            <th>ssnUpdateModel</th>
+                            <th>returnUrl</th>
+                            <th>thresholdRelevanceScore</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="InstitutionDetails : ${institutionDetailsList}">
+                            <td th:text="${InstitutionDetails.institutionDetailsId}"></td>
+                            <td th:text="${InstitutionDetails.institutionName}"></td>
+                            <td th:text="${InstitutionDetails.institutionCode}"></td>
+                            <td th:text="${InstitutionDetails.ssnUpdateModel}"></td>
+                            <td th:text="${InstitutionDetails.returnUrl}"></td>
+                            <td th:text="${InstitutionDetails.thresholdRelevanceScore}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteInstitutionDetails/{id}(id=${InstitutionDetails.institutionDetailsId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+
+                <div  class="container">
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">BureauConfigDetails</button>
+                    <br/><br/><br/>
+                    <div id="demo2" class="collapse">
+                        <table style=overflow-x: auto; id="dtHorizontalVerticalExample1" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                               width=auto>
+                            <thead>
+                            <tr>
+                                <th>bureauConfigId</th>
+                                <th>institutionCode</th>
+                                <th>bureauName</th>
+                                <th>bureauScoreCode</th>
+                                <th>bureauAdditionalScoreCode</th>
+                                <th>inquiryType</th>
+                                <th>endPoint</th>
+                                <th>userName</th>
+                                <th>password</th>
+                                <th>cbcCustomerId</th>
+                                <th>tuSubscriberPrefixCode</th>
+                                <th>tuKeyStoreLocation</th>
+                                <th>tuCertPassword</th>
+                                <th>tuIndustryCode</th>
+                                <th>tuProductCode</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="BureauConfigDetails : ${bureauConfigDetailsList}">
+                                <td th:text="${BureauConfigDetails.bureauConfigId}"></td>
+                                <td th:text="${BureauConfigDetails.institutionCode}"></td>
+                                <td th:text="${BureauConfigDetails.bureauName}"></td>
+                                <td th:text="${BureauConfigDetails.bureauScoreCode}"></td>
+                                <td th:text="${BureauConfigDetails.bureauAdditionalScoreCode}"></td>
+                                <td th:text="${BureauConfigDetails.inquiryType}"></td>
+                                <td th:text="${BureauConfigDetails.endPoint}"></td>
+                                <td th:text="${BureauConfigDetails.userName}"></td>
+                                <td th:text="${BureauConfigDetails.password}"></td>
+                                <td th:text="${BureauConfigDetails.cbcCustomerId}"></td>
+                                <td th:text="${BureauConfigDetails.tuSubscriberPrefixCode}"></td>
+                                <td th:text="${BureauConfigDetails.tuKeyStoreLocation}"></td>
+                                <td th:text="${BureauConfigDetails.tuCertPassword}"></td>
+                                <td th:text="${BureauConfigDetails.tuIndustryCode}"></td>
+                                <td th:text="${BureauConfigDetails.tuProductCode}"></td>
+                                <td><a
+                                        th:href="@{/products/deleteBureauConfigDetails/{id}(id=${BureauConfigDetails.bureauConfigId})}"
+                                        class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <hr>
+
+                    <div  class="container">
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">InternalAutoInventory</button>
+                        <br/><br/><br/>
+                        <div id="demo3" class="collapse">
+                            <table style="width: auto;" id="dtHorizontalVerticalExample2" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                                   width=auto>
+                                <thead>
+                                <tr>
+                                    <th>internalAutoInventoryId</th>
+                                    <th>year</th>
+                                    <th>make</th>
+                                    <th>model</th>
+                                    <th>series</th>
+                                    <th>effectiveDate</th>
+                                    <th>endDate</th>
+                                    <th>institutionCode</th>
+                                    <th>loanPurpose</th>
+                                    <th>imageUrl</th>
+                                    <th>displayOrder</th>
+                                    <th>displayPrice</th>
+                                    <th>msrp</th>
+                                    <th>invoicePrice</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="InternalAutoInventory : ${internalAutoInventoryList}">
+                                    <td th:text="${InternalAutoInventory.internalAutoInventoryId}"></td>
+                                    <td th:text="${InternalAutoInventory.year}"></td>
+                                    <td th:text="${InternalAutoInventory.make}"></td>
+                                    <td th:text="${InternalAutoInventory.model}"></td>
+                                    <td th:text="${InternalAutoInventory.series}"></td>
+                                    <td th:text="${InternalAutoInventory.effectiveDate}"></td>
+                                    <td th:text="${InternalAutoInventory.endDate}"></td>
+                                    <td th:text="${InternalAutoInventory.institutionCode}"></td>
+                                    <td th:text="${InternalAutoInventory.loanPurpose}"></td>
+                                    <td th:text="${InternalAutoInventory.imageUrl}"></td>
+                                    <td th:text="${InternalAutoInventory.displayOrder}"></td>
+                                    <td th:text="${InternalAutoInventory.displayPrice}"></td>
+                                    <td th:text="${InternalAutoInventory.msrp}"></td>
+                                    <td th:text="${InternalAutoInventory.invoicePrice}"></td>
+                                    <td><a
+                                            th:href="@{/products/deleteInternalAutoInventory/{id}(id=${InternalAutoInventory.internalAutoInventoryId})}"
+                                            class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4">BackendProductLookUp</button>
+                <br/><br/><br/>
+                <div id="demo4" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample3" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>backendProductLookUpId</th>
+                            <th>institutionCode</th>
+                            <th>productName</th>
+                            <th>lenderName</th>
+                            <th>effectiveDate</th>
+                            <th>endDate</th>
+                            <th>loanPurpose</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="BackendProductLookUp : ${backendProductLookUpList}">
+                            <td th:text="${BackendProductLookUp.backendProductLookUpId}"></td>
+                            <td th:text="${BackendProductLookUp.institutionCode}"></td>
+                            <td th:text="${BackendProductLookUp.productName}"></td>
+                            <td th:text="${BackendProductLookUp.lenderName}"></td>
+                            <td th:text="${BackendProductLookUp.effectiveDate}"></td>
+                            <td th:text="${BackendProductLookUp.endDate}"></td>
+                            <td th:text="${BackendProductLookUp.loanPurpose}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteBackendProductLookUp/{id}(id=${BackendProductLookUp.backendProductLookUpId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo5">InstitutionCrossProductDetails</button>
+                <br/><br/><br/>
+                <div id="demo5" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample4" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>institutionCrossProductDetailsId</th>
+                            <th>institutionCode</th>
+                            <th>loanPurpose</th>
+                            <th>minFICO</th>
+                            <th>maxFICO</th>
+                            <th>effectiveDate</th>
+                            <th>endDate</th>
+                            <th>eligibleChannels</th>
+                            <th>eligibleApplicationTypes</th>
+                            <th>isPreApprovalConsidered</th>
+                            <th>eligibleStates</th>
+                            <th>crossSellLoanPurpose</th>
+                            <th>crossSellProductType</th>
+                            <th>isCrossSellLoanPurposeRefinance</th>
+                            <th>crossSellDefaultLoanAmount</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="InstitutionCrossProductDetails : ${institutionCrossProductDetailsList}">
+                            <td th:text="${InstitutionCrossProductDetails.institutionCrossProductDetailsId}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.institutionCode}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.loanPurpose}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.minFICO}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.maxFICO}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.effectiveDate}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.endDate}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.eligibleChannels}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.eligibleApplicationTypes}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.isPreApprovalConsidered}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.eligibleStates}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.crossSellLoanPurpose}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.crossSellProductType}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.isCrossSellLoanPurposeRefinance}"></td>
+                            <td th:text="${InstitutionCrossProductDetails.crossSellDefaultLoanAmount}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteInstitutionCrossProductDetails/{id}(id=${InstitutionCrossProductDetails.institutionCrossProductDetailsId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6">IPWhiteListing</button>
+                <br/><br/><br/>
+                <div id="demo6" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample5" class="table table-striped table-bordered table-sm " cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <!--<tr><th></th><a href="/products/save1" class="btn btn-primary"><i
+                                class="fas fa-user-plus ml-2"> Add </i></a></th></tr>-->
+                        <tr>
+                            <th>ipId</th>
+                            <th>institutionCode</th>
+                            <th>idAddress</th>
+                            <th>apiName</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="IPWhiteListing : ${ipWhiteListingList}">
+                            <td th:text="${IPWhiteListing.ipId}"></td>
+                            <td th:text="${IPWhiteListing.institutionCode}"></td>
+                            <td th:text="${IPWhiteListing.idAddress}"></td>
+                            <td th:text="${IPWhiteListing.apiName}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteIPWhiteListing/{id}(id=${IPWhiteListing.ipId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo7">TaxLookUp</button>
+                <br/><br/><br/>
+                <div id="demo7" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample6" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>zip</th>
+                            <th>city</th>
+                            <th>county</th>
+                            <th>state</th>
+                            <th>country</th>
+                            <th>taxType</th>
+                            <th>loanPurpose</th>
+                            <th>institutionCode</th>
+                            <th>basis</th>
+                            <th>fixedTax</th>
+                            <th>variableTax</th>
+                            <th>effectiveDate</th>
+                            <th>endDate</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="TaxLookUp : ${taxLookUpList}">
+                            <td th:text="${TaxLookUp.id}"></td>
+                            <td th:text="${TaxLookUp.zip}"></td>
+                            <td th:text="${TaxLookUp.city}"></td>
+                            <td th:text="${TaxLookUp.county}"></td>
+                            <td th:text="${TaxLookUp.state}"></td>
+                            <td th:text="${TaxLookUp.country}"></td>
+                            <td th:text="${TaxLookUp.taxType}"></td>
+                            <td th:text="${TaxLookUp.loanPurpose}"></td>
+                            <td th:text="${TaxLookUp.institutionCode}"></td>
+                            <td th:text="${TaxLookUp.basis}"></td>
+                            <td th:text="${TaxLookUp.fixedTax}"></td>
+                            <td th:text="${TaxLookUp.variableTax}"></td>
+                            <td th:text="${TaxLookUp.effectiveDate}"></td>
+                            <td th:text="${TaxLookUp.endDate}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteTaxLookUp/{id}(id=${TaxLookUp.id})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo8">EmailTemplateDetails</button>
+                <br/><br/><br/>
+                <div id="demo8" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample7" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>emailTemplateId</th>
+                            <th>institutionName</th>
+                            <th>channel</th>
+                            <th>loanPurpose</th>
+                            <th>communicationType</th>
+                            <th>templateName</th>
+                            <th>templateDesc</th>
+                            <th>activeIndicator</th>
+                            <th>day</th>
+                            <th>fromEmail</th>
+                            <th>sendGridApiKey</th>
+                            <th>subject</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="EmailTemplateDetails : ${emailTemplateDetailsList}">
+                            <td th:text="${EmailTemplateDetails.emailTemplateId}"></td>
+                            <td th:text="${EmailTemplateDetails.institutionName}"></td>
+                            <td th:text="${EmailTemplateDetails.channel}"></td>
+                            <td th:text="${EmailTemplateDetails.loanPurpose}"></td>
+                            <td th:text="${EmailTemplateDetails.communicationType}"></td>
+                            <td th:text="${EmailTemplateDetails.templateName}"></td>
+                            <td th:text="${EmailTemplateDetails.templateDesc}"></td>
+                            <td th:text="${EmailTemplateDetails.activeIndicator}"></td>
+                            <td th:text="${EmailTemplateDetails.day}"></td>
+                            <td th:text="${EmailTemplateDetails.fromEmail}"></td>
+                            <td th:text="${EmailTemplateDetails.sendGridApiKey}"></td>
+                            <td th:text="${EmailTemplateDetails.subject}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteEmailTemplateDetails/{id}(id=${EmailTemplateDetails.emailTemplateId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo9">PartnerDetails</button>
+                <br/><br/><br/>
+                <div id="demo9" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample9" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>partnerDetailsId</th>
+                            <th>partnerNumber</th>
+                            <th>partnerName</th>
+                            <th>apiKey</th>
+                            <th>referrerId</th>
+                            <th>channel</th>
+                            <th>institutionCode</th>
+                            <th>defaultIndicator</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="PartnerDetails : ${partnerDetailsList}">
+                            <td th:text="${PartnerDetails.partnerDetailsId}"></td>
+                            <td th:text="${PartnerDetails.partnerNumber}"></td>
+                            <td th:text="${PartnerDetails.partnerName}"></td>
+                            <td th:text="${PartnerDetails.apiKey}"></td>
+                            <td th:text="${PartnerDetails.referrerId}"></td>
+                            <td th:text="${PartnerDetails.channel}"></td>
+                            <td th:text="${PartnerDetails.institutionCode}"></td>
+                            <td th:text="${PartnerDetails.defaultIndicator}"></td>
+                            <td><a
+                                    th:href="@{/products/deletePartnerDetails/{id}(id=${PartnerDetails.partnerDetailsId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo10">SchoolEligibilityLookup</button>
+                <br/><br/><br/>
+                <div id="demo10" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample10" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>schoolEligibilityLookupId</th>
+                            <th>institutionCode</th>
+                            <th>lender</th>
+                            <th>schoolName</th>
+                            <th>effectiveDate</th>
+                            <th>expirationDate</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="SchoolEligibilityLookup : ${schoolEligibilityLookupList}">
+                            <td th:text="${SchoolEligibilityLookup.schoolEligibilityLookupId}"></td>
+                            <td th:text="${SchoolEligibilityLookup.institutionCode}"></td>
+                            <td th:text="${SchoolEligibilityLookup.lender}"></td>
+                            <td th:text="${SchoolEligibilityLookup.schoolName}"></td>
+                            <td th:text="${SchoolEligibilityLookup.effectiveDate}"></td>
+                            <td th:text="${SchoolEligibilityLookup.expirationDate}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteSchoolEligibilityLookup/{id}(id=${SchoolEligibilityLookup.schoolEligibilityLookupId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo11">SMSTemplateDetails</button>
+                <br/><br/><br/>
+                <div id="demo11" class="collapse">
+                    <table style="width: auto;" id="dtHorizontalVerticalExample11" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                           width=auto>
+                        <thead>
+                        <tr>
+                            <th>smsTemplateId</th>
+                            <th>institutionName</th>
+                            <th>channel</th>
+                            <th>loanPurpose</th>
+                            <th>communicationType</th>
+                            <th>smsText</th>
+                            <th>activeIndicator</th>
+                            <th>day</th>
+                            <th>fromPhoneNUmber</th>
+                            <th>twilioAccountSid</th>
+                            <th>twilioAccountToken</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="SMSTemplateDetails : ${smsTemplateDetailsList}">
+                            <td th:text="${SMSTemplateDetails.smsTemplateId}"></td>
+                            <td th:text="${SMSTemplateDetails.institutionName}"></td>
+                            <td th:text="${SMSTemplateDetails.channel}"></td>
+                            <td th:text="${SMSTemplateDetails.loanPurpose}"></td>
+                            <td th:text="${SMSTemplateDetails.communicationType}"></td>
+                            <td th:text="${SMSTemplateDetails.smsText}"></td>
+                            <td th:text="${SMSTemplateDetails.activeIndicator}"></td>
+                            <td th:text="${SMSTemplateDetails.day}"></td>
+                            <td th:text="${SMSTemplateDetails.fromPhoneNUmber}"></td>
+                            <td th:text="${SMSTemplateDetails.twilioAccountSid}"></td>
+                            <td th:text="${SMSTemplateDetails.twilioAccountToken}"></td>
+                            <td><a
+                                    th:href="@{/products/deleteSMSTemplateDetails/{id}(id=${SMSTemplateDetails.smsTemplateId})}"
+                                    class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div  class="container">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo12">Lender Realated Tables</button>
+                <br/><br/><br/>
+                <div id="demo12" class="collapse">
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo13">Lender</button>
+                    <br/><br/><br/>
+                    <div id="demo13" class="collapse">
+                        <table style="width: auto;" id="dtHorizontalVerticalExample13" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                               width=auto>
+                            <thead>
+                            <tr>
+                                <th>lenderId</th>
+                                <th>bankIcon</th>
+                                <th>institutionCode</th>
+                                <th>dba</th>
+                                <th>contact</th>
+                                <th>contactPerson</th>
+                                <th>email</th>
+                                <th>addressId</th>
+                                <th>type</th>
+                                <th>name</th>
+                                <th>achDiscountRate</th>
+                                <th>discountedPrice</th>
+                                <th>isLenderOfferAch</th>
+                                <th>valueType</th>
+                                <th>loanPurpose</th>
+                                <th>termBasedLoan</th>
+                                <th>minLoanAmount</th>
+                                <th>maxLoanAmount</th>
+                                <th>relevanceScore</th>
+                                <th>variableBaseRate</th>
+                                <th>fixedBaseRate</th>
+                                <th>effectiveDate</th>
+                                <th>expirationDate</th>
+                                <th>finalSubmitChannel</th>
+                                <th>finalSubmitEmailId</th>
+                                <th>finalSubmitMessage</th>
+                                <th>finalSubmitWebForwardLink</th>
+                                <th>crossSellEnabled</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="Lender : ${lenderList}">
+                                <td th:text="${Lender.lenderId}"></td>
+                                <td th:text="${Lender.bankIcon}"></td>
+                                <td th:text="${Lender.institutionCode}"></td>
+                                <td th:text="${Lender.dba}"></td>
+                                <td th:text="${Lender.contact}"></td>
+                                <td th:text="${Lender.contactPerson}"></td>
+                                <td th:text="${Lender.email}"></td>
+                                <td th:text="${Lender.addressId}"></td>
+                                <td th:text="${Lender.type}"></td>
+                                <td th:text="${Lender.name}"></td>
+                                <td th:text="${Lender.achDiscountRate}"></td>
+                                <td th:text="${Lender.discountedPrice}"></td>
+                                <td th:text="${Lender.isLenderOfferAch}"></td>
+                                <td th:text="${Lender.valueType}"></td>
+                                <td th:text="${Lender.loanPurpose}"></td>
+                                <td th:text="${Lender.termBasedLoan}"></td>
+                                <td th:text="${Lender.minLoanAmount}"></td>
+                                <td th:text="${Lender.maxLoanAmount}"></td>
+                                <td th:text="${Lender.relevanceScore}"></td>
+                                <td th:text="${Lender.variableBaseRate}"></td>
+                                <td th:text="${Lender.fixedBaseRate}"></td>
+                                <td th:text="${Lender.effectiveDate}"></td>
+                                <td th:text="${Lender.expirationDate}"></td>
+                                <td th:text="${Lender.finalSubmitChannel}"></td>
+                                <td th:text="${Lender.finalSubmitEmailId}"></td>
+                                <td th:text="${Lender.finalSubmitMessage}"></td>
+                                <td th:text="${Lender.finalSubmitWebForwardLink}"></td>
+                                <td th:text="${Lender.crossSellEnabled}"></td>
+                                <td><a
+                                        th:href="@{/products/deleteLender/{id}(id=${Lender.lenderId})}"
+                                        class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br/><br/>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo14">LenderDocuSignConfig</button>
+                    <br/><br/><br/>
+                    <div id="demo14" class="collapse">
+                        <table style="width: auto;" id="dtHorizontalVerticalExample14" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                               width=auto>
+                            <thead>
+                            <tr>
+                                <th>lenderDocuSignConfigId</th>
+                                <th>institutionCode</th>
+                                <th>lenderName</th>
+                                <th>serviceProvider</th>
+                                <th>applicationType</th>
+                                <th>loanPurpose</th>
+                                <th>integrationKey</th>
+                                <th>userGuid</th>
+                                <th>brandId</th>
+                                <th>edocControlid</th>
+                                <th>edocUser</th>
+                                <th>edocEKey</th>
+                                <th>templateName</th>
+                                <th>effectiveDate</th>
+                                <th>expirationDate</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="LenderDocuSignConfig : ${lenderDocuSignConfigList}">
+                                <td th:text="${LenderDocuSignConfig.lenderDocuSignConfigId}"></td>
+                                <td th:text="${LenderDocuSignConfig.institutionCode}"></td>
+                                <td th:text="${LenderDocuSignConfig.lenderName}"></td>
+                                <td th:text="${LenderDocuSignConfig.serviceProvider}"></td>
+                                <td th:text="${LenderDocuSignConfig.applicationType}"></td>
+                                <td th:text="${LenderDocuSignConfig.loanPurpose}"></td>
+                                <td th:text="${LenderDocuSignConfig.integrationKey}"></td>
+                                <td th:text="${LenderDocuSignConfig.userGuid}"></td>
+                                <td th:text="${LenderDocuSignConfig.brandId}"></td>
+                                <td th:text="${LenderDocuSignConfig.edocControlid}"></td>
+                                <td th:text="${LenderDocuSignConfig.edocUser}"></td>
+                                <td th:text="${LenderDocuSignConfig.edocEKey}"></td>
+                                <td th:text="${LenderDocuSignConfig.templateName}"></td>
+                                <td th:text="${LenderDocuSignConfig.effectiveDate}"></td>
+                                <td th:text="${LenderDocuSignConfig.expirationDate}"></td>
+                                <td><a
+                                        th:href="@{/products/deleteLenderDocuSignConfig/{id}(id=${LenderDocuSignConfig.lenderDocuSignConfigId})}"
+                                        class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/><br/>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo15">LenderMaxDTILookup</button>
+                    <br/><br/><br/>
+                    <div id="demo15" class="collapse">
+                        <table style="width: auto;" id="dtHorizontalVerticalExample15" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                               width=auto>
+                            <thead>
+                            <tr>
+                                <th>lenderMaxDTILookupId</th>
+                                <th>institutionCode</th>
+                                <th>lenderName</th>
+                                <th>loanPurpose</th>
+                                <th>maxDti</th>
+                                <th>maxPti</th>
+                                <th>minIncome</th>
+                                <th>maxIncome</th>
+                                <th>effectiveDate</th>
+                                <th>expirationDate</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="LenderMaxDTILookup : ${lenderMaxDTILookupList}">
+                                <td th:text="${LenderMaxDTILookup.lenderMaxDTILookupId}"></td>
+                                <td th:text="${LenderMaxDTILookup.institutionCode}"></td>
+                                <td th:text="${LenderMaxDTILookup.lenderName}"></td>
+                                <td th:text="${LenderMaxDTILookup.loanPurpose}"></td>
+                                <td th:text="${LenderMaxDTILookup.maxDti}"></td>
+                                <td th:text="${LenderMaxDTILookup.maxPti}"></td>
+                                <td th:text="${LenderMaxDTILookup.minIncome}"></td>
+                                <td th:text="${LenderMaxDTILookup.maxIncome}"></td>
+                                <td th:text="${LenderMaxDTILookup.effectiveDate}"></td>
+                                <td th:text="${LenderMaxDTILookup.expirationDate}"></td>
+                                <td><a
+                                        th:href="@{/products/deleteLenderMaxDTILookup/{id}(id=${LenderMaxDTILookup.lenderMaxDTILookupId})}"
+                                        class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/><br/>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo16">LenderMenu</button>
+                    <br/><br/><br/>
+                    <div id="demo16" class="collapse">
+                        <table style="width: auto;" id="dtHorizontalVerticalExample16" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                               width=auto>
+                            <thead>
+                            <tr>
+                                <th>menuId</th>
+                                <th>lenderId</th>
+                                <th>title</th>
+                                <th>link</th>
+                                <th>parentMenuId</th>
+                                <th>internal</th>
+                                <th>icon</th>
+                                <th>href</th>
+                                <th>institutionCode</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="LenderMenu : ${lenderMenuList}">
+                                <td th:text="${LenderMenu.menuId}"></td>
+                                <td th:text="${LenderMenu.lenderId}"></td>
+                                <td th:text="${LenderMenu.title}"></td>
+                                <td th:text="${LenderMenu.link}"></td>
+                                <td th:text="${LenderMenu.parentMenuId}"></td>
+                                <td th:text="${LenderMenu.internal}"></td>
+                                <td th:text="${LenderMenu.icon}"></td>
+                                <td th:text="${LenderMenu.href}"></td>
+                                <td th:text="${LenderMenu.institutionCode}"></td>
+                                <td><a
+                                        th:href="@{/products/deleteLenderMenu/{id}(id=${LenderMenu.menuId})}"
+                                        class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/><br/>
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo17">LenderSubProduct</button>
+                    <br/><br/><br/>
+                    <div id="demo17" class="collapse">
+                        <table style="width: auto;" id="dtHorizontalVerticalExample17" class="table table-striped table-bordered table-sm " cellpadding="0" cellspacing="0" border="1"
+                               width=auto>
+                            <thead>
+                            <tr>
+                                <th>lenderSubProductId</th>
+                                <th>institutionCode</th>
+                                <th>lenderName</th>
+                                <th>loanPurpose</th>
+                                <th>subProductName</th>
+                                <th>effectiveDate</th>
+                                <th>expirationDate</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="LenderSubProduct : ${lenderSubProductList}">
+                                <td th:text="${LenderSubProduct.lenderSubProductId}"></td>
+                                <td th:text="${LenderSubProduct.institutionCode}"></td>
+                                <td th:text="${LenderSubProduct.lenderName}"></td>
+                                <td th:text="${LenderSubProduct.loanPurpose}"></td>
+                                <td th:text="${LenderSubProduct.subProductName}"></td>
+                                <td th:text="${LenderSubProduct.effectiveDate}"></td>
+                                <td th:text="${LenderSubProduct.expirationDate}"></td>
+                                <td><a
+                                        th:href="@{/products/deleteLenderSubProduct/{id}(id=${LenderSubProduct.lenderSubProductId})}"
+                                        class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i,k, txtValue;
+  var names = ["dtHorizontalVerticalExample", "dtHorizontalVerticalExample1","dtHorizontalVerticalExample2","dtHorizontalVerticalExample3","dtHorizontalVerticalExample4","dtHorizontalVerticalExample5","dtHorizontalVerticalExample6","dtHorizontalVerticalExample7","dtHorizontalVerticalExample9","dtHorizontalVerticalExample10","dtHorizontalVerticalExample11","dtHorizontalVerticalExample13","dtHorizontalVerticalExample14","dtHorizontalVerticalExample15","dtHorizontalVerticalExample16","dtHorizontalVerticalExample17"];
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  for(k=0;k<names.length;k++) {
+  table = document.getElementById(names[k]);
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+    }
+  }
+}
+
+</script>
+</body>
+</html>
